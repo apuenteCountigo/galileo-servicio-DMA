@@ -47,7 +47,7 @@ jobs:
             ssh -i ~/id_rsaalain mome@192.168.0.98 '
             cd galileo-newdev/dma/galileo-servicio-DMA &&
             git fetch origin &&
-            git reset --hard origin/main &&
+            git reset --hard origin/INIT04 &&
             git pull &&
             cd servicio-dma &&
             export PATH=/opt/maven/bin:$PATH && mvn clean install -DskipTests &&
