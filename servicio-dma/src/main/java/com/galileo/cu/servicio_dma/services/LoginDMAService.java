@@ -19,7 +19,7 @@ public class LoginDMAService {
     DmaLoginDTO payload = new DmaLoginDTO();
 
     @EventListener
-    public String Autenticate(ContextRefreshedEvent event) {
+    public void Autenticate(ContextRefreshedEvent event) {
         DmaLoginDTO payload = new DmaLoginDTO();
         payload.setHost("192.168.0.200");
         payload.setLogin("countigo");
@@ -27,6 +27,5 @@ public class LoginDMAService {
         payload.setClientAppName("test");
         String token = dMAClient.LoginDMA(payload);
         log.info(token);
-        return "";
     }
 }
