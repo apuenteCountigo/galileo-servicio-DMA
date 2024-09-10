@@ -20,7 +20,7 @@ public class ServicioDmaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("**************************************");
-		System.out.println("DMA V-2409091840");
+		System.out.println("DMA V-2409092056");
 	}
 
 }
