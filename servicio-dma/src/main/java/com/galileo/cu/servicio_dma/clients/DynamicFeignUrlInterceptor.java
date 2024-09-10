@@ -11,18 +11,21 @@ import com.galileo.cu.servicio_dma.repositories.ConexionesRepository;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class DynamicFeignUrlInterceptor implements RequestInterceptor {
     @Autowired
     private ConexionesRepository conRepo; // Este servicio recuperará la URL de la base de datos
 
     @Override
     public void apply(RequestTemplate template) {
-        List<Conexiones> cons = conRepo.findByServicio("DMA");
+        List<Conexiones> cons = conRepo.findByServicio("DATAMINER");
+        log.info("Size=" + cons.size());
         Conexiones con = cons.get(0);
         String dynamicUrl = "http://" + con.getIpServicio() + "/API/v1/json.asmx"; // Aquí obtienes la URL
-                                                                                   // desde la base
-        // de datos
+
+        log.info(dynamicUrl);
         template.target(dynamicUrl); // Establece la URL base dinámica
 
         // Obtener las credenciales desde la base de datos o configuración
